@@ -1,6 +1,8 @@
 set encoding=utf-8
 set clipboard+=unnamed
 scriptencoding utf-8
+set splitright
+
 " ↑1行目は読み込み時の文字コードの設定
 " ↑2行目はVim Script内でマルチバイトを使う場合の設定
 " Vim scritptにvimrcも含まれるので、日本語でコメントを書く場合は先頭にこの設定が必要になる
@@ -44,6 +46,8 @@ NeoBundle 'suy/vim-ctrlp-commandline'
 NeoBundle 'rking/ag.vim'
 " プロジェクトに入ってるESLintを読み込む
 NeoBundle 'pmsorhaindo/syntastic-local-eslint.vim'
+"markdown
+NeoBundle 'skanehira/preview-markdown.vim'
 
 " vimのlua機能が使える時だけ以下のVimプラグインをインストールする
 if has('lua')
@@ -249,3 +253,6 @@ Bundle 'thinca/vim-quickrun'
 Plugin 'scrooloose/nerdtree'
 filetype plugin indent on     " required!
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <C-m> :PreviewMarkdown<CR>
+let g:preview_markdown_auto_update = 1
+let g:preview_markdown_vertical = 1
